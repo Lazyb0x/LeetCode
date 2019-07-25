@@ -24,6 +24,17 @@ public class ListNodeManage {
 		return head;
 	}
 	
+	public static String toString(ListNode n) {
+		String s = "[";
+		while (n!=null) {
+			s += n.val;
+			if (n.next!=null) s += ", ";
+			n = n.next;
+		}
+		s += "]";
+		return s;
+	}
+	
 	public static void main(String[] args) {
 		int[] a = {1,2,3};
 		ListNode l1 = ListNodeManage.toListNode(a);
