@@ -8,7 +8,7 @@ class Solution55 {
         		pos = i;
         	}
         }
-        return pos==0? true: false;
+        return pos==0;
     }
 }
 
