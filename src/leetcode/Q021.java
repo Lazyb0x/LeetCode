@@ -37,6 +37,6 @@ public class Q021 {
 		l2.next.next = new ListNode(6);
 		
 		ListNode listNode = new Solution21().mergeTwoLists(l1, l2);
-		listNode.printChild();
+		System.out.println(ListNode.toString(listNode));
 	}
 }

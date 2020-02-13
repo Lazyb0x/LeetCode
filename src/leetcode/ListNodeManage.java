@@ -38,6 +38,6 @@ public class ListNodeManage {
 	public static void main(String[] args) {
 		int[] a = {1,2,3};
 		ListNode l1 = ListNodeManage.toListNode(a);
-		l1.printChild();
+//		l1.printChild();
 	}
 }

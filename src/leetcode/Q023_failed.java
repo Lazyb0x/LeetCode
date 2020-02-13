@@ -52,6 +52,6 @@ public class Q023_failed {
 		Solution23f s = new Solution23f();
 
 		ListNode l = s.mergeKLists(lists);
-		l.printChild();
+		System.out.println(ListNode.toString(l));
 	}
 }

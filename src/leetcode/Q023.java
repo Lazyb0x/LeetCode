@@ -40,6 +40,6 @@ public class Q023 {
 		ListNode[] lists2 = {l4};
 		
 		ListNode l = s.mergeKLists(lists);
-		if(l!=null) l.printChild();
+		System.out.println(ListNode.toString(l));;
 	}
 }
