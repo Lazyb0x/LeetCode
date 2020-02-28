@@ -44,6 +44,13 @@ class Solution94 {
 
 public class Q094_Binary_Tree_Inorder_Traversal {
     public static void main(String[] args) {
-        Integer[] a = {1,2,3,null};
+        Solution94 s = new Solution94();
+        
+        Integer[] a = {1,2,4,null,null,5,null,null,3,null,6};
+        Integer[] b = {1,null,null};
+        TreeNode root = TreeNode.fromPreorder(a);
+        List<Integer> list = s.inorderTraversal(root);
+        List<Integer> list2 = TreeNode.preorderTraversal(root);
+        System.out.println(list);
     }
 }
