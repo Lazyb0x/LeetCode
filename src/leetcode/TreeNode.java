@@ -3,6 +3,8 @@ package leetcode;
 import java.util.Deque;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
+import java.util.Stack;
 
 public class TreeNode {
     public int val;
@@ -19,6 +21,7 @@ public class TreeNode {
      * @return 二叉树的根节点
      */
     public static TreeNode fromPreorder(Integer[] nums) {
+        if (nums.length==0) return null;
         Deque<TreeNode> stack = new LinkedList<TreeNode>();
         TreeNode head = new TreeNode(nums[0]);
         TreeNode curr = head.left;
@@ -42,6 +45,41 @@ public class TreeNode {
                     curr = stack.pop();
             }
         }
+        return head;
+    }
+    
+    /**
+     * 由层次遍历生成树
+     * @param nums 树的层次遍历，包括空节点
+     * @return 二叉树的根节点
+     */
+    public static TreeNode fromLevelOrder(Integer[] nums) {
+        Queue<TreeNode> queue = new LinkedList<TreeNode>();
+        
+        TreeNode head;
+        if (nums.length>0) {
+            head = new TreeNode(nums[0]);
+            queue.offer(head);
+        }
+        else {
+            head = null;
+        }
+        
+        int i = 1;
+        while(!queue.isEmpty()) {
+            TreeNode node = queue.poll();
+            if (i<nums.length && nums[i]!=null) {
+                node.left = new TreeNode(nums[i]);
+                queue.offer(node.left);
+            }
+            i++;
+            if (i<nums.length && nums[i]!=null) {
+                node.right = new TreeNode(nums[i++]);
+                queue.offer(node.right);
+            }
+            i++;
+        }
+        
         return head;
     }
     
@@ -93,7 +131,8 @@ public class TreeNode {
     
     public static void main(String[] args) {
         Integer[] a = {1,2,4,null,null,5,null,null,3,null,6};
-        TreeNode node = TreeNode.fromPreorder(a);
+        Integer[] b = {1,2,3,4,5,null,6};
+        TreeNode node = TreeNode.fromLevelOrder(b);
         System.out.println(TreeNode.preorderTraversal(node));
     }
 }
