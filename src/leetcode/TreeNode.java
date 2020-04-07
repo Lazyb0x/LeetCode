@@ -3,6 +3,7 @@ package leetcode;
 import java.util.Deque;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Queue;
 import java.util.Stack;
 
@@ -15,6 +16,39 @@ public class TreeNode {
         this.left = this.right = null;
     }
     
+    @Override
+    public int hashCode() {
+        return Objects.hash(left, right, val);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        TreeNode other = (TreeNode) obj;
+        return Objects.equals(left, other.left) && Objects.equals(right, other.right) && val == other.val;
+    }
+
+    public void print() {
+        print(this, "");
+    }
+    
+    public void print(TreeNode p, String pre) {
+        if (p!=null) {
+            System.out.println(pre+p.val);
+        }
+        else {
+            System.out.println(pre+"null");
+            return;
+        }
+        print(p.left, pre+" ");
+        print(p.right, pre+" ");
+    }
+
     /**
      * 由前序遍历序列生成树
      * @param nums 树的前序遍历，包括 null 节点
